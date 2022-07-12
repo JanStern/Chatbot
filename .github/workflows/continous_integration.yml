@@ -39,4 +39,4 @@ jobs:
 
        - name: Run pytest suite
         run: | 
-          pytest pytest_test.py 
+          pytest tests/test_speech_to_text.py 

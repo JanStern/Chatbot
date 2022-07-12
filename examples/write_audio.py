@@ -19,5 +19,5 @@ with open("microphone-results.aiff", "wb") as f:
     f.write(audio.get_aiff_data())
 
 # write audio to a FLAC file
-with open("microphone-results.flac", "wb") as f:
+with open("../resources/microphone-results.flac", "wb") as f:
     f.write(audio.get_flac_data())

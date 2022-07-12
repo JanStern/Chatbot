@@ -1,15 +1,27 @@
 import speech_recognition as sr
+from typing import Text
 
-speech_engine = sr.Recognizer()
+
+def from_audio(audio_file) -> Text:
+    r = sr.Recognizer()
+    with sr.AudioFile(audio_file) as source:
+        audio = r.record(source)
+
+    return r.recognize_google(audio)
 
 
-def from_microphone():
-    with sr.Microphone() as micro:
+def from_microphone(
+        calibrate: bool = False
+) -> Text:
+    r = sr.Recognizer()
+    s = sr.Microphone()
+    with s as source:
+
+        # only do it at the start. Takes up extra time
+        if calibrate:
+            r.adjust_for_ambient_noise(source)  # we only need to calibrate once, before we start listening
+
         print("Recording...")
-        audio = speech_engine.record(micro, duration=5)
+        audio = r.record(source)
         print("Recognition...")
-        text = speech_engine.recognize_google(audio)
-        return text
-
-
-print(from_microphone())
+        return r.recognize_google(audio)
