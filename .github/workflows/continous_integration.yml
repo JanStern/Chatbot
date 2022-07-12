@@ -32,7 +32,6 @@ jobs:
       - name: Lint with pylint
         run: | 
           python lint.py 
-
-       - name: Run pytest suite
+      - name: Run pytest suite
         run: | 
           pytest tests/test_speech_to_text.py 
