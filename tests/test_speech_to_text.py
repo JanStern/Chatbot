@@ -16,4 +16,4 @@ class TestSpeechToText:
         assert text == "this is a test audio file"
 
     def test_EXAMPLE(self):
-        assert 1 == 1
+        assert 2 == 2
