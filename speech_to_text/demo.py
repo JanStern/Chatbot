@@ -23,5 +23,7 @@ def from_microphone(
 
         print("Recording...")
         audio = r.record(source)
-        print("Recognition...")
+        print("Finished listening")
         return r.recognize_google(audio)
+
+print(from_microphone())
